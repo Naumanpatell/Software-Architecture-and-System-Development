@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4' // Using a recent stable version
+    id 'io.spring.dependency-management' version '1.1.5' // Using a recent stable version
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Lab1_exB'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Core Spring Boot Dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // ----------------------------------------------------------------------
+    // JSP and JSTL Dependencies (Correct for Spring Boot 3 / Jakarta EE)
+    // The older 'javax.servlet:jstl' causes the White Label Error in Spring Boot 3.
+    // ----------------------------------------------------------------------
+
+    // 1. Tomcat Embed Jasper (Needed for compiling JSPs)
+    runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+    // 2. Jakarta JSTL API (Replaces javax.servlet:jstl)
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+
+    // 3. Jakarta JSTL Implementation (Using Glassfish implementation)
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+
+    // Testing Dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
