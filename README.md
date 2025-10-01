@@ -16,7 +16,8 @@
 
 ---
 
-🎯 Purpose
+## 🎯 Purpose
+
 -Study resource for lectures
 -Lab solutions & practice
 -Quick reference for exams/projects
