@@ -1,7 +1,9 @@
 package com.example.lab2_ex.controller;
 
+import com.example.lab2_ex.model.Pet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +46,13 @@ public class MainController {
         }
         model.addAttribute("value", sum);
         return "show";
-
     }
+    @RequestMapping("/myPet/{name}/{species}")
+    public String exF(@ModelAttribute Pet pet, Model model) {
+        model.addAttribute("value", pet);
+        return "show";
+    }
+
+
 }
 
