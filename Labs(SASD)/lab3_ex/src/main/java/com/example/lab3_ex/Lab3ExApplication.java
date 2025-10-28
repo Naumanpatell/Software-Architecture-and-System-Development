@@ -13,9 +13,6 @@ import com.example.lab3_ex.model.Goal;
 @SpringBootApplication
 public class Lab3ExApplication implements CommandLineRunner {
 
-	/**
-	 * Local data storage
-	 */
 	public static List<Goal> goalList = new ArrayList<>();
 
 	public static void main(String[] args) {
@@ -25,7 +22,7 @@ public class Lab3ExApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		Goal goal = new Goal();
-		goal.setId(Long.valueOf(0));
+		goal.setId(Long.valueOf(1));
 		goal.setMinutes(60);
 
 		List<Exercise> exerciseList = new ArrayList<>();
@@ -38,7 +35,7 @@ public class Lab3ExApplication implements CommandLineRunner {
 		exerciseList.add(exercise);
 
 		exercise = new Exercise();
-		exercise.setId(Long.valueOf(2));
+		exercise.setId(Long.valueOf(1));
 		exercise.setActivity("walking");
 		exercise.setGoal(goal);
 		exercise.setMinutes(30);
@@ -49,20 +46,19 @@ public class Lab3ExApplication implements CommandLineRunner {
 
 		// GOAL 2
 		goal = new Goal();
-		goal.setId(Long.valueOf(3));
+		goal.setId(Long.valueOf(2));
 		goal.setMinutes(30);
 
 		exerciseList = new ArrayList<>();
 
 		exercise = new Exercise();
-		exercise.setId(Long.valueOf(4));
-		exercise.setActivity("running");
+		exercise.setId(Long.valueOf(2));
+		exercise.setActivity("weight-Lifting");
 		exercise.setGoal(goal);
 		exercise.setMinutes(30);
 		exerciseList.add(exercise);
 
 		goal.setExercises(exerciseList);
 		goalList.add(goal);
-
 	}
 }

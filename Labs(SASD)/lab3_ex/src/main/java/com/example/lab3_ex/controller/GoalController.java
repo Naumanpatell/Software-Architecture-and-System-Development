@@ -29,13 +29,6 @@ public class GoalController {
         return "getGoals";
     }
 
-    /**
-     * Adds a new goal
-     *
-     * @param goal
-     * @param exerciseDesc
-     * @return
-     */
     @GetMapping("addGoal")
     public String updateGoal(@ModelAttribute Goal goal, @RequestParam String exerciseDesc) {
 
